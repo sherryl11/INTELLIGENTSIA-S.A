@@ -1,4 +1,4 @@
- /* Reset and Base Styles */
+/* Reset and Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -340,7 +340,6 @@ body {
 .value-card i {
     font-size: 3.5rem;
     background: linear-gradient(135deg, #3498db, #2ecc71);
-    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 20px;
     transition: transform 0.3s ease;
@@ -391,21 +390,71 @@ body {
     }
 }
 
-@media (max-width: 480px) {
-    .about {
-        padding: 60px 0;
-    }
-    
-    .about h2 {
-        font-size: 2rem;
-    }
-    
-    .about-content {
-        padding: 20px;
-    }
-    
-    .value-card {
-        padding: 20px;
+/* Guestbook Section */
+.guestbook-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.guestbook-form {
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.guestbook-form h3 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+.guestbook-messages {
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.guestbook-messages h3 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+.messages-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.message-item {
+    border-bottom: 1px solid #eee;
+    padding: 20px 0;
+}
+
+.message-item:last-child {
+    border-bottom: none;
+}
+
+.message-item strong {
+    color: #2c3e50;
+}
+
+.message-item p {
+    margin: 10px 0;
+    color: #666;
+}
+
+.message-item small {
+    color: #999;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .guestbook-content {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -828,6 +877,10 @@ body {
     .services-grid,
     .products-grid,
     .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .guestbook-content {
         grid-template-columns: 1fr;
     }
 }
