@@ -12,7 +12,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="images/logo.jpg" alt="INTELLIGENTSIA SA Logo">
+                <img src="images/logo.png" alt="INTELLIGENTSIA SA Logo">
                 <span>INTELLIGENTSIA SA</span>
             </div>
             <ul class="nav-menu">
@@ -102,6 +102,37 @@
                         </div>
                         <button type="submit" class="submit-btn">Send Message</button>
                     </form>
+                </div>
+                <div class="contact-messages">
+                    <h3>Received Messages</h3>
+                    <div class="messages-list">
+                        <?php
+                        if (file_exists('contact.txt')) {
+                            $content = file_get_contents('contact.txt');
+                            $entries = explode("---\n", $content);
+                            foreach (array_reverse($entries) as $entry) {
+                                if (!empty(trim($entry))) {
+                                    $lines = explode("\n", trim($entry));
+                                    echo "<div class='message-item'>";
+                                    foreach ($lines as $line) {
+                                        if (strpos($line, 'Name:') === 0) {
+                                            echo "<strong>" . htmlspecialchars(substr($line, 6)) . "</strong><br>";
+                                        } elseif (strpos($line, 'Email:') === 0) {
+                                            echo "<em>" . htmlspecialchars(substr($line, 7)) . "</em><br>";
+                                        } elseif (strpos($line, 'Subject:') === 0) {
+                                            echo "<strong>Subject: " . htmlspecialchars(substr($line, 9)) . "</strong><br>";
+                                        } elseif (strpos($line, 'Message:') === 0) {
+                                            echo "<p>" . htmlspecialchars(substr($line, 9)) . "</p>";
+                                        } elseif (strpos($line, 'Date:') === 0) {
+                                            echo "<small>" . htmlspecialchars(substr($line, 6)) . "</small>";
+                                        }
+                                    }
+                                    echo "</div>";
+                                }
+                            }
+                        }
+                        ?>
+                    </div>
                 </div>
             </div>
         </div>

@@ -12,7 +12,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="images/logo.jpg" alt="INTELLIGENTSIA SA Logo">
+                <img src="images/logo.png" alt="INTELLIGENTSIA SA Logo">
                 <span>INTELLIGENTSIA SA</span>
             </div>
             <ul class="nav-menu">

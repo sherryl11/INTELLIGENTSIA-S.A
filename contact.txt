@@ -1,0 +1,12 @@
+Name: John Doe
+Email: john@example.com
+Subject: Test Subject
+Message: This is a test message.
+Date: 2023-10-01 12:00:00
+---
+Name: Jane Smith
+Email: jane@example.com
+Subject: Another Subject
+Message: Another test message.
+Date: 2023-10-02 13:00:00
+---
